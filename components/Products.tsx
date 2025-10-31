@@ -56,7 +56,7 @@ const Products: React.FC<ProductsProps> = ({ products, onProductSelect }) => {
   return (
     <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-dark-gray mb-6">Our Products</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-dark-gray mb-6">Our Products</h2>
         
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
           <div>
@@ -93,7 +93,7 @@ const Products: React.FC<ProductsProps> = ({ products, onProductSelect }) => {
                   className="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
                 >
                   <div className="relative">
-                    <img src={product.imageUrl} alt={product.name} className="w-full h-64 object-cover" />
+                    <img src={product.imageUrl} alt={product.name} className="w-full h-64 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6">

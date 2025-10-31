@@ -27,7 +27,7 @@ const About: React.FC = () => {
           transition={{ staggerChildren: 0.2 }}
           className="text-center"
         >
-          <motion.h2 variants={cardVariants} className="text-4xl font-bold text-dark-gray mb-4">Our Story</motion.h2>
+          <motion.h2 variants={cardVariants} className="text-3xl sm:text-4xl font-bold text-dark-gray mb-4">Our Story</motion.h2>
           <motion.p variants={cardVariants} className="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
             Founded in the heart of China's manufacturing hub, TentCharged was born from a passion for exploration and a commitment to quality. We believe that the best adventures start with reliable gear. That's why we dedicate ourselves to designing and producing high-quality tents and outdoor shelters that you can trust, no matter where your journey takes you.
           </motion.p>

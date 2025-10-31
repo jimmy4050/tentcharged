@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-black uppercase tracking-wider drop-shadow-lg"
+          className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-wider drop-shadow-lg"
         >
           TentCharged
         </motion.h1>
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-4 text-xl md:text-2xl font-light drop-shadow-md"
+          className="mt-4 text-lg sm:text-xl md:text-2xl font-light drop-shadow-md"
         >
           Powering Your Outdoor Adventures
         </motion.p>

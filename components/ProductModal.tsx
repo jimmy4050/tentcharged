@@ -64,9 +64,9 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <img src={product.imageUrl} alt={product.name} className="w-full md:w-1/2 h-64 md:h-auto object-cover" />
-          <div className="p-8 flex flex-col">
-            <h2 className="text-3xl font-bold text-dark-gray mb-2">{product.name}</h2>
-            <p className="text-2xl font-bold text-forest-green mb-4">{product.price}</p>
+          <div className="p-6 md:p-8 flex flex-col">
+            <h2 className="text-2xl md:text-3xl font-bold text-dark-gray mb-2">{product.name}</h2>
+            <p className="text-xl md:text-2xl font-bold text-forest-green mb-4">{product.price}</p>
             <p className="text-gray-600 mb-6 flex-grow">{product.description}</p>
             <button
               onClick={() => setShowWeChat(true)}

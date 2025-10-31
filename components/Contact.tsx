@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-dark-gray mb-12">Get in Touch</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-dark-gray mb-12">Get in Touch</h2>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
