@@ -92,8 +92,8 @@ const Products: React.FC<ProductsProps> = ({ products, onProductSelect }) => {
                   layout
                   className="group bg-gray-50 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
                 >
-                  <div className="relative">
-                    <img src={product.imageUrl} alt={product.name} className="w-full h-64 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" />
+                  <div className="relative overflow-hidden aspect-[4/3]">
+                    <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6">

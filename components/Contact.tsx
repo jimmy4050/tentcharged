@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -46,29 +46,58 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="bg-white p-8 rounded-lg shadow-lg"
           >
-            <h3 className="text-2xl font-semibold mb-4">Send Us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green" />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green" />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                <textarea name="message" id="message" rows={4} required value={formData.message} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green"></textarea>
-              </div>
-              <div>
-                <button type="submit" disabled={status === 'sending'} className="w-full bg-forest-green text-white font-bold py-3 px-6 rounded-md hover:bg-green-800 transition-colors duration-300 disabled:bg-gray-400">
-                  {status === 'sending' ? 'Sending...' : 'Send Message'}
-                </button>
-              </div>
-              {status === 'success' && <p className="text-green-600">Message sent successfully!</p>}
-              {status === 'error' && <p className="text-red-600">Failed to send message. Please try again.</p>}
-            </form>
+            <AnimatePresence mode="wait">
+              {status === 'success' ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="text-center flex flex-col items-center justify-center"
+                >
+                  <CheckCircle className="h-16 w-16 text-forest-green mb-4" />
+                  <h3 className="text-2xl font-semibold mb-2">Message Sent!</h3>
+                  <p className="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you shortly.</p>
+                  <button
+                    onClick={() => setStatus('')}
+                    className="w-full bg-dark-gray text-white font-bold py-3 px-6 rounded-md hover:bg-gray-700 transition-colors duration-300"
+                  >
+                    Send Another Message
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-4">Send Us a Message</h3>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                      <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green" />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                      <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green" />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                      <textarea name="message" id="message" rows={4} required value={formData.message} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-forest-green focus:border-forest-green"></textarea>
+                    </div>
+                    <div>
+                      <button type="submit" disabled={status === 'sending'} className="w-full bg-forest-green text-white font-bold py-3 px-6 rounded-md hover:bg-green-800 transition-colors duration-300 disabled:bg-gray-400">
+                        {status === 'sending' ? 'Sending...' : 'Send Message'}
+                      </button>
+                    </div>
+                    {status === 'error' && <p className="text-red-600 mt-2 text-center">Failed to send message. Please try again.</p>}
+                  </form>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}

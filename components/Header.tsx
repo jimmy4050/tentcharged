@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ isAdmin, onLoginClick, onAdminClick, on
     <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="#home" onClick={(e) => handleNavLinkClick(e, '#home')} aria-label="Go to homepage">
+          <a href="#home" onClick={(e) => handleNavLinkClick(e, '#home')} aria-label="TentCharged Homepage">
             <Logo className={`h-8 w-auto transition-colors duration-300 ${isScrolled ? 'text-dark-gray' : 'text-white'}`} />
           </a>
           
